@@ -92,7 +92,6 @@ function displayData(data) {
   });
 }
 
-
 function addToCart(product) {
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
