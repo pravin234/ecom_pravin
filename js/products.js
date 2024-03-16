@@ -32,9 +32,8 @@ function displayData(data) {
     cardBody.classList.add(
       "card-body",
       "d-flex",
-      "justify-content-between",
-      "align-items-start",
-      "flex-column"
+      "flex-column",
+      "justify-content-between"
     );
 
     const title = document.createElement("h5");
@@ -47,10 +46,16 @@ function displayData(data) {
 
     const price = document.createElement("p");
     price.textContent = `Price: ₹${pro.price}`;
-    price.classList.add("card-text", "mb-auto");
+    price.classList.add("card-text");
 
     const buttonGroup = document.createElement("div");
-    buttonGroup.classList.add("d-flex", "justify-content-left");
+    buttonGroup.classList.add(
+      "d-flex",
+      "justify-content-between",
+      "align-items-center",
+      "mt-3"
+    );
+
     const viewButtonContent = document.createElement("span");
     viewButtonContent.innerHTML = '<i class="fas fa-eye"></i>'; // Assuming you have Font Awesome linked
 
@@ -58,19 +63,14 @@ function displayData(data) {
     const viewButton = document.createElement("a");
     viewButton.href = `pro.html?id=${pro.id}`;
     viewButton.target = "_blank";
-    viewButton.style.margin = "20px";
-    viewButton.classList.add("btn", "btn-primary", "mr-2");
+    viewButton.classList.add("btn", "btn-primary");
     viewButton.appendChild(viewButtonContent);
+
     const addToCartButtonContent = document.createElement("span");
     addToCartButtonContent.innerHTML = '<i class="fas fa-shopping-cart"></i>'; // Using Font Awesome icon
 
     const addToCartButton = document.createElement("button");
-    addToCartButton.classList.add(
-      "btn",
-      "btn-primary",
-      "mr-2",
-      "align-self-start"
-    );
+    addToCartButton.classList.add("btn", "btn-primary");
     addToCartButton.appendChild(addToCartButtonContent); // Append the span to the button
 
     addToCartButton.addEventListener("click", function () {
@@ -91,6 +91,7 @@ function displayData(data) {
     mainDiv.appendChild(cardDiv);
   });
 }
+
 
 function addToCart(product) {
   let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
