@@ -205,6 +205,20 @@
           window.location.replace("login.html");
         });
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (loggedInUser) {
+          const email = loggedInUser.email;
+          const password = loggedInUser.password;
+          // Now you can use the email and password to perform any necessary actions in the products page
+        } else {
+          // Handle case when user is not logged in or credentials are not found in localStorage
+          alert("User is not logged in.");
+          // Redirect user to login page
+          window.location.replace("login.html");
+        }
+      });
     </script>
   </body>
 </html>

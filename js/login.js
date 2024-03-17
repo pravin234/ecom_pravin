@@ -31,3 +31,30 @@ function signUp(e) {
       console.error(error);
     });
 }
+
+function signUp(e) {
+  e.preventDefault();
+  const email = userEmail.value;
+  const password = userPassword.value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert("Logged in successfully!");
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+      // Encode email and password
+      const encodedEmail = encodeURIComponent(email);
+      const encodedPassword = encodeURIComponent(password);
+
+      // Construct the encrypted URL
+      const encryptedURL = `products.html?email=${encodedEmail}&password=${encodedPassword}`;
+
+      // Redirect to the encrypted URL
+      window.location.replace(encryptedURL);
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
+      console.error(error);
+    });
+}
