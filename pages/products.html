@@ -139,7 +139,9 @@
                     <span id="userEmail" class="ms-1"></span>
                   </a>
                 </li>
-                <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
+                <li>
+                  <a href="#""  id="logout-btn" onclick="handleLogout();">Logout</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -184,8 +186,10 @@
         <div class="row" id="products"></div>
       </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+
     <script src="../js/products.js" type="module"></script>
-    <script src="../js/logout.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -219,6 +223,30 @@
           window.location.replace("login.html");
         }
       });
-    </script>
+
+      function handleLogout() {
+    console.log("Logout link clicked!"); // For testing purposes
+    alert("Logging out...");
+
+    // Remove user data from Firebase authentication state
+    const auth = getAuth();
+    signOut(auth)
+        .then(() => {
+            // Sign-out successful.
+            alert("Logout successful.");
+
+            // Remove user data from local storage
+            localStorage.removeItem("loggedInUser");
+
+            // Redirect to login page
+            window.location.href = "login.html";
+        })
+        .catch((error) => {
+            // An error happened.
+            console.error("Logout error:", error);
+            alert("Logout error. Please try again.");
+        });
+}
+</script>
   </body>
 </html>
