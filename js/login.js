@@ -36,65 +36,31 @@ function signUp(e) {
     });
 }
 
-<<<<<<< HEAD
-// Function to handle Facebook login
 function loginWithFacebook() {
   const provider = new FacebookAuthProvider();
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      // User signed in with Facebook
-      const user = result.user;
-      console.log(user);
-=======
-function signUp1(e) {
-  e.preventDefault();
-  const email = userEmail.value;
-  const password = userPassword.value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      alert("Logged in successfully!");
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-
-      // Encode email and password
-      const encodedEmail = encodeURIComponent(email);
-      const encodedPassword = encodeURIComponent(password);
-
-      // Construct the encrypted URL
-      const encryptedURL = `products.html?email=${encodedEmail}&password=${encodedPassword}`;
-
-      // Redirect to the encrypted URL
-      window.location.replace(encryptedURL);
->>>>>>> 485c6ee8410043ff6f5f7edbad36b9fc86eaeea3
-    })
-    .catch((error) => {
-      // Handle errors
-      console.error(error);
-    });
+  signInWithPopup(auth, provider).then((result) => {
+    // User signed in with Facebook
+    const user = result.user;
+    console.log(user);
+  });
 }
 
-// Function to handle Google login
 function loginWithGoogle() {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      // User signed in with Google
       const user = result.user;
       console.log(user);
     })
     .catch((error) => {
-      // Handle errors
       console.error(error);
     });
 }
 
-// Function to handle GitHub login
 function loginWithGitHub() {
   const provider = new GithubAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      // User signed in with GitHub
       const user = result.user;
       console.log(user);
     })
