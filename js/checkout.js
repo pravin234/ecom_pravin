@@ -154,3 +154,4 @@ function processPayment() {
   const rzp = new Razorpay(options);
   rzp.open();
 }
+

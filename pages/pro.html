@@ -52,7 +52,7 @@
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
-                id="navbarDropdownShop"
+                id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -61,12 +61,20 @@
               </a>
               <ul
                 class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownShop"
+                aria-labelledby="navbarDropdown"
               >
-                <li><a class="dropdown-item" href="#">All Products</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Popular Items</a></li>
-                <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">All Products</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Popular Items</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">New Arrivals</a>
+                </li>
               </ul>
             </li>
             <!-- Cart icon -->
@@ -86,16 +94,26 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <i class="far fa-user"></i>
-                <span id="userEmail" class="ms-1"></span>
+                User
               </a>
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownUser"
               >
-                <li>
-                  <a class="dropdown-item" href="#">Logout</a>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdownUser"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="far fa-user"></i>
+                    <span id="userEmail" class="ms-1"></span>
+                  </a>
                 </li>
+                <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -107,14 +125,8 @@
       Product id :
       <p id="productId"></p>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("id");
-        console.log(id);
-        document.getElementById("productId").textContent = id;
-      });
-    </script>
+    <script src="../js/logout.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const userData = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -132,6 +144,20 @@
           localStorage.removeItem("loggedInUser");
           window.location.replace("login.html");
         });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (loggedInUser) {
+          const email = loggedInUser.email;
+          const password = loggedInUser.password;
+          // Now you can use the email and password to perform any necessary actions in the products page
+        } else {
+          // Handle case when user is not logged in or credentials are not found in localStorage
+          alert("User is not logged in.");
+          // Redirect user to login page
+          window.location.replace("login.html");
+        }
       });
     </script>
   </body>

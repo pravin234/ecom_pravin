@@ -37,7 +37,7 @@
     <div class="form-container">
       <div class="card shadow-5-strong" style="width: 90%; max-width: 500px">
         <div class="card-body p-5">
-          <h2 class="fw-bold text-center mb-5">Sign up now</h2>
+          <h2 class="fw-bold text-center mb-5">Sign In now</h2>
           <form id="signup-form">
             <!-- Email input -->
             <div class="form-outline mb-4">
@@ -57,16 +57,28 @@
             </button>
             <div class="text-center">
               <p>or sign up with:</p>
-              <button type="button" class="btn btn-link btn-floating mx-1">
+              <button
+                type="button"
+                class="btn btn-link btn-floating mx-1"
+                onclick="loginWithFacebook()"
+              >
                 <i class="fab fa-facebook-f"></i>
               </button>
-              <button type="button" class="btn btn-link btn-floating mx-1">
+              <button
+                type="button"
+                class="btn btn-link btn-floating mx-1"
+                onclick="loginWithGoogle()"
+              >
                 <i class="fab fa-google"></i>
               </button>
               <button type="button" class="btn btn-link btn-floating mx-1">
                 <i class="fab fa-twitter"></i>
               </button>
-              <button type="button" class="btn btn-link btn-floating mx-1">
+              <button
+                type="button"
+                class="btn btn-link btn-floating mx-1"
+                onclick="loginWithGitHub()"
+              >
                 <i class="fab fa-github"></i>
               </button>
             </div>
