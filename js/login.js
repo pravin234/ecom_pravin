@@ -32,7 +32,7 @@ function signUp(e) {
     });
 }
 
-function signUp(e) {
+function signUp1(e) {
   e.preventDefault();
   const email = userEmail.value;
   const password = userPassword.value;
