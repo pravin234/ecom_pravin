@@ -26,7 +26,7 @@ function signUp(e) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      alert("Logged in successfully!");
+      // alert("Logged in successfully!");
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       window.location.replace("products.html");
     })
