@@ -28,8 +28,8 @@ function signUp(e) {
       const user = userCredential.user;
       // alert("Logged in successfully!");
       localStorage.setItem("loggedInUser", JSON.stringify(user));
-      // window.location.replace("products.html");
-      window.location.replace("index.html");
+      window.location.replace("products.html");
+     
     })
     .catch((error) => {
       alert("Login failed: " + error.message);
