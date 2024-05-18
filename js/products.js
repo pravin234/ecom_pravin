@@ -114,7 +114,7 @@ function addToCart(product) {
 
   localStorage.setItem("cart", JSON.stringify(cartItems));
 
-  alert("Item added to cart!");
+  // alert("Item added to cart!");
 }
 
 window.addEventListener("load", function () {
